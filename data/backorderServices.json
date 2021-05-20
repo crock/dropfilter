@@ -1,0 +1,17 @@
+[
+    {
+        "displayName": "Namejet",
+        "slug": "namejet",
+        "active": true
+    },
+    {
+        "displayName": "GoDaddy Auctions",
+        "slug": "godaddy",
+        "active": false
+    },
+    {
+        "displayName": "SnapNames",
+        "slug": "snapnames",
+        "active": true
+    }
+]

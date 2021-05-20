@@ -1,0 +1,11 @@
+[build]
+    command = "yarn build"
+    publish = "out"
+
+[[plugins]]
+    package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+    from = "/lists/*"
+    to = "https://storage.googleapis.com/droplists/:splat"
+    status = 200
