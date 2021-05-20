@@ -33,26 +33,15 @@ const DropfilterPage = () => {
 
 	useEffect(() => {
 		const data = window.localStorage.getItem('df_data')
-		const json = data ? JSON.parse(data) : ({ config: {}, favorites: [], presets: [] })
-
-		const merged = {
-			config: {
-				...json.config,
-				...state.config,
-			},
-			favorites: [
-				...json.favorites,
-				...state.favorites,
-			],
-			presets: [
-				...json.presets,
-				...state.presets,
-			]
+		if (data) {
+			const json = JSON.parse(data)
+			dispatch({ type: FilterActionTypes.restoreConfiguration, payload: json })
 		}
-
-		window.localStorage.setItem('df_data', JSON.stringify(merged))
-		dispatch({ type: FilterActionTypes.restoreConfiguration, payload: merged })
 	}, [])
+
+	useEffect(() => {
+		window.localStorage.setItem('df_data', JSON.stringify(state))
+	}, [state])
 
 	return (
 		<>

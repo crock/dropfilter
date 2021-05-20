@@ -7,7 +7,7 @@
     {
         "displayName": "GoDaddy Auctions",
         "slug": "godaddy",
-        "active": false
+        "active": true
     },
     {
         "displayName": "SnapNames",

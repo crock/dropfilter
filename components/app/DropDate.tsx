@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext } from "react"
 import { DFContext, FilterActionTypes } from "../../store"
 
 const DropDate = () => {
@@ -29,21 +29,6 @@ const DropDate = () => {
 				<option value="yesterday">Yesterday</option>
 				<option value="today">Today</option>
 				<option value="tomorrow">Tomorrow</option>
-				<option disabled>---</option>
-				<option
-					value="in_2_days"
-					disabled={state.config.backorderService === "godaddy"}
-				>
-					In 2 Days
-				</option>
-				<option
-					value="in_3_days"
-					disabled={["godaddy", "namejet"].includes(
-						state.config.backorderService
-					)}
-				>
-					In 3 Days
-				</option>
 			</select>
 		</div>
 	)
