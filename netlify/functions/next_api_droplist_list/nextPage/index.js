@@ -1,1 +1,0 @@
-module.exports = require("./pages/api/droplist/[...list].js")
