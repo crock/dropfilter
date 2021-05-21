@@ -1,8 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,600;0,700;0,900;1,700&display=swap');
 
 body {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
   font-family: 'Lato', sans-serif;
   font-size: 16px;
+
+  @apply bg-gray-50 dark:bg-gray-900 text-black dark:text-white;
+}
+
+a {
+  @apply text-blue-600;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  @apply font-heading font-bold;
+}
+
+ul {
+  @apply list-disc list-inside my-3;
+}
+
+ol {
+  @apply list-decimal list-inside my-3;
+}
+
+li {
+  @apply p-2;
 }
 
 @keyframes shine {
