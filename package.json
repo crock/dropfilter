@@ -8,6 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-regular-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/pro-regular-svg-icons": "^5.15.2",
+    "@fortawesome/pro-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@headlessui/react": "^1.2.0",
     "@heroicons/react": "^1.0.1",
     "@tailwindcss/forms": "^0.3.2",

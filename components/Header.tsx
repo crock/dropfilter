@@ -1,5 +1,7 @@
 import React from 'react'
 import Img from 'next/image'
+import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default () => {
 
@@ -14,6 +16,35 @@ export default () => {
                         <span className="font-semibold text-white text-xs">by Domaincord</span>
                     </div>
                 </div>
+                <nav className="flex flex-row flex-nowrap items-center justify-end flex-1">
+                    <Link href="https://www.buymeacoffee.com/croc">
+                        <a className="flex flex-row flex-nowrap items-center text-sm text-white p-1 lg:p-4 hover:text-red-500">
+                            <FontAwesomeIcon
+                                icon={[`far`, `heart`]}
+                                className="mr-2 w-4 h-auto"
+                            />
+                           <span className="hidden lg:inline-block">Support Me</span>
+                        </a>
+                    </Link>
+                    <Link href="https://github.com/domaincord/dropfilter">
+                        <a className="flex flex-row flex-nowrap items-center text-sm text-white p-1 lg:p-4 hover:text-black">
+                            <FontAwesomeIcon
+                                icon={[`fab`, `github`]}
+                                className="mr-2 w-4 h-auto"
+                            />
+                            <span className="hidden lg:inline-block">Contribute</span>
+                        </a>
+                    </Link>
+                    <Link href="https://dc.link/discord">
+                        <a className="flex flex-row flex-nowrap items-center text-sm text-white p-1 lg:p-4 hover:text-discord-light">
+                            <FontAwesomeIcon
+                                icon={[`fab`, `discord`]}
+                                className="mr-2 w-4 h-auto"
+                            />
+                            <span className="hidden lg:inline-block">Join the Discord</span>
+                        </a>
+                    </Link>
+                </nav>
             </div>
         </header>
     )
