@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import Head from 'next/head'
 import Img from 'next/image'
 import { DFContext, FilterActionTypes } from "../store"
@@ -14,9 +14,11 @@ import {
 	DropDate
 } from '../components/app/'
 import { IFavorite, IPreset } from "../store/context/DFContext"
+import DomainQualityMeter from '../components/DomainQuaityMeter'
 
 const DropfilterPage = () => {
 	const { state, dispatch } = useContext(DFContext)
+	const [ domain, setDomain ] = useState('')
 
 	const getListString = (list: any) => {
 		if (list && list.length) {
@@ -96,6 +98,10 @@ const DropfilterPage = () => {
 
 				<div className="flex flex-col mb-4">
 					<Results />
+					<div className="bg-white p-4 rounded shadow my-4">
+						<input type="text" className="form-input w-full" placeholder={'example.com'} onChange={e => setDomain(e.target.value)} />
+						<DomainQualityMeter domainName={domain} />
+					</div>
 				</div>
 
 				<div className="flex flex-col lg:flex-row flex-nowrap justify-between items-start w-full">
