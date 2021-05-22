@@ -145,7 +145,7 @@ const DomainQualityMeter = ({ domainName }: IDomainQualityMeter) => {
 				monetary value as we feel automated appraisals generally fall
 				short or miss the mark completely.
 			</p>
-			<div className="w-3/4 h-6 bg-gray-300 mt-4 relative">
+			<div className="w-full h-6 bg-gray-300 mt-4 relative">
 				<InnerBar
 					className={`transition-width transition-colors ease-in duration-1000 ${
 						quality ? bgColorLookup[quality.color] : "transparent"

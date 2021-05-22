@@ -98,8 +98,8 @@ const DropfilterPage = () => {
 
 				<div className="flex flex-col mb-4">
 					<Results />
-					<div className="bg-white p-4 rounded shadow my-4">
-						<input type="text" className="form-input w-full" placeholder={'example.com'} onChange={e => setDomain(e.target.value)} />
+					<div className="bg-white dark:bg-gray-800 p-4 rounded shadow my-4">
+						<input type="text" className="form-input w-full text-black" placeholder={'example.com'} onChange={e => setDomain(e.target.value)} />
 						<DomainQualityMeter domainName={domain} />
 					</div>
 				</div>
