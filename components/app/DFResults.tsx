@@ -113,7 +113,7 @@ const DFResults = () => {
 							>
 								<button
 									className={
-										"bg-blue-600 text-white bg-none border-none p-2 flex flex-row flex-nowrap items-center focus:outline-none flex-1"
+										"bg-primary text-white bg-none border-none p-2 flex flex-row flex-nowrap items-center focus:outline-none flex-1"
 									}
 									title={`toggle ${d} as favorite`}
 									onClick={() => dispatch({type: FilterActionTypes.addFavorite, payload: { fqdn: d, drop_date_str: formattedDate(state.config.dropDate) }})}

@@ -27,9 +27,9 @@ const NumberToggle = () => {
 				onClick={changeAction}
 				aria-checked={state.config.excludeNumbers}
 				className={classNames(
-					`bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline`,
+					`relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline`,
 					{
-						"bg-blue-600": state.config.excludeNumbers,
+						"bg-primary": state.config.excludeNumbers,
 						"bg-gray-200 dark:bg-gray-400": !state.config.excludeNumbers,
 					}
 				)}

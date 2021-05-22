@@ -47,7 +47,7 @@ const Extensions = () => {
 							"text-xs rounded-sm shadow-sm m-1 cursor-pointer text-center focus:outline-none p-2",
 							{
 								"dark:bg-gray-700 bg-white dark:text-gray-400 text-black": !ext.selected,
-								"bg-blue-600 text-white": ext.selected,
+								"bg-primary text-white": ext.selected,
 							}
 						)}
 					>

@@ -118,7 +118,7 @@ const Keywords = () => {
 								"text-xs rounded-sm shadow-sm m-1 cursor-pointer text-center focus:outline-none p-2 flex flex-row flex-no-wrap items-center w-auto justify-between",
 								{
 									"dark:bg-gray-700 bg-white": !kw.selected,
-									"bg-blue-600": kw.selected,
+									"bg-primary": kw.selected,
 								}
 							)}
 						>
