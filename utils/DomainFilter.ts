@@ -64,8 +64,8 @@ class DomainFilter {
 	contains_numbers(domain: string) {
 		return this.config.excludeNumbers
 			? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].filter((num) => {
-					return domain.includes(num.toString())
-			  }).length === 0
+				return domain.includes(num.toString())
+			}).length === 0
 			: true
 	}
 
@@ -80,13 +80,13 @@ class DomainFilter {
 		)
 	}
 
-	filter(domains: string[]) {
-		return domains
-			.filter(this.is_proper_length, this)
-			.filter(this.contains_hyphens, this)
-			.filter(this.contains_numbers, this)
-			.filter(this.is_select_tld, this)
-			.filter(this.contains_keywords, this)
+	filter(domains: string[], cb) {
+		const FilterWorker = new Worker("WorkerFile.js");
+		FilterWorker.onmessage = (ev) => {
+			cb(ev.data)
+		}
+		FilterWorker.postMessage({ action: "FILTER", data: domains, config: this.config });
+		return;
 	}
 }
 
