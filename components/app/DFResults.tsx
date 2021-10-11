@@ -19,6 +19,8 @@ const DFResults = () => {
 		: `/api/droplist/${state.config.backorderService}/${formattedDate(state.config.dropDate)}.txt`
 
 	const fetcher = url => fetch(url).then(res => res.text())
+
+
 	const { data, error } = useSWR(downloadUrl, fetcher)
 
 	const getFilteredData = () => {
@@ -31,6 +33,9 @@ const DFResults = () => {
 			console.error('Could not fetch drop list')
 			return
 		}
+
+
+		// Here the spinner should be shown 
 
 		const df = new DomainFilter({
 			domainLength: state.config.domainLength,
@@ -45,10 +50,13 @@ const DFResults = () => {
 				.map((ext) => ext.value) : [],
 		})
 
+
 		if (!loading) {
-			const list = df.filter(unfiltered)
-			setNumFiltered(list.length)
-			setFiltered(list)
+			df.filter(unfiltered, (list) => {
+				// Here the spinner should be hidden, as the data will be set
+				setNumFiltered(list.length)
+				setFiltered(list)
+			});
 		}
 	}
 
@@ -56,7 +64,7 @@ const DFResults = () => {
 		return !!state.favorites.find((f) => f.fqdn === fqdn)
 	}
 
-	useEffect(debounce(getFilteredData, 100), [
+	useEffect(debounce(getFilteredData, 250), [
 		loading,
 		downloadUrl,
 		state.config.backorderService,
@@ -75,7 +83,7 @@ const DFResults = () => {
 			setUnfiltered(unfiltered)
 			setLoading(false)
 		}
-	},[data])
+	}, [data])
 
 	return (
 		<div className="bg-white dark:bg-gray-800 shadow rounded-lg w-full h-auto flex p-4">
@@ -83,7 +91,7 @@ const DFResults = () => {
 				<LoadingSpinner />
 			) : (
 				<div className="flex flex-col">
-					
+
 					<label className="block text-gray-700 dark:text-white text-xl font-bold font-heading mb-2">
 						Results
 						<span className="font-light text-base text-primary ml-2">
@@ -116,7 +124,7 @@ const DFResults = () => {
 										"bg-primary text-white bg-none border-none p-2 flex flex-row flex-nowrap items-center focus:outline-none flex-1"
 									}
 									title={`toggle ${d} as favorite`}
-									onClick={() => dispatch({type: FilterActionTypes.addFavorite, payload: { fqdn: d, drop_date_str: formattedDate(state.config.dropDate) }})}
+									onClick={() => dispatch({ type: FilterActionTypes.addFavorite, payload: { fqdn: d, drop_date_str: formattedDate(state.config.dropDate) } })}
 								>
 									<span>{d}</span>
 

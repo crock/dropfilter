@@ -3,7 +3,7 @@ import Img from 'next/image'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default () => {
+const Header = () => {
 
 
     return (
@@ -48,4 +48,6 @@ export default () => {
             </div>
         </header>
     )
-}
+};
+
+export default Header;
