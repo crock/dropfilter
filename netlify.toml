@@ -9,3 +9,4 @@
     from = "/lists/*"
     to = "https://storage.googleapis.com/droplists/:splat"
     status = 200
+    headers = {Access-Control-Allow-Origin = "*"}
