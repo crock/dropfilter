@@ -4,6 +4,8 @@ import axios from 'axios'
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { query: { list } } = req
 
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
     if (list && list.length === 2) {
         const [service, filename] = list
         const gcsUrl = `https://storage.googleapis.com/droplists/${service}/${filename}`
