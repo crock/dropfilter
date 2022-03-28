@@ -1,5 +1,7 @@
-import { IKeyword } from "./DomainFilter"
+import { IFilterConfig, IKeyword } from "./DomainFilter"
 import moment from 'moment'
+import axios from 'axios'
+import CryptoJS from 'crypto-js'
 
 export const compareStrings = (a: string, b: string) => {
 	// Assuming you want case-insensitive comparison
@@ -32,4 +34,17 @@ export const formattedDate = (dropDate: string) => {
 		default:
 			return dropDate
 	}
+}
+
+export const fetchDropList = async (service: string, dropDate: string) => {
+	const url = `https://storage.googleapis.com/droplists/${service}/${dropDate}.txt`
+    const response = await axios.get(url)
+	return response.status === 200 ? response.data : ''
+}
+
+
+export const getFilterHash = (filters: IFilterConfig) => {
+	const stringifiedFilters = JSON.stringify(filters)
+	const hash = CryptoJS.MD5(stringifiedFilters)
+	return hash
 }

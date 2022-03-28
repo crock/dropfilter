@@ -9,7 +9,7 @@ const HyphenToggle = () => {
 		dispatch({ type: FilterActionTypes.toggleHyphens, payload: null })
 	}
 	return (
-		<div className="my-2 flex flex-row flex-no-wrap justify-between items-center">
+		<div className="flex flex-row flex-no-wrap justify-between items-center">
 			<div>
 				<label className="block text-gray-700 dark:text-white text-xl font-bold font-heading mb-2">
 					Exclude Hyphens
