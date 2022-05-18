@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (list && list.length === 2) {
         const [service, filename] = list
-        const gcsUrl = `https://storage.googleapis.com/droplists/${service}/${filename}`
+        const gcsUrl = `https://lists.dropfilter.app/lists/${service}/${filename}`
         const response = await axios.get(gcsUrl)
         if (response.status === 200) {
             res.status(200).send(response.data)

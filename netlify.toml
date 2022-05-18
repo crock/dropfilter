@@ -7,6 +7,6 @@
 
 [[redirects]]
     from = "/lists/*"
-    to = "https://storage.googleapis.com/droplists/:splat"
+    to = "https://lists.dropfilter.app/lists/:splat"
     status = 200
     headers = {Access-Control-Allow-Origin = "*"}
