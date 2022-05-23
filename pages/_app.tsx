@@ -10,10 +10,10 @@ import {
   faGithub,
   faDiscord,
 } from "@fortawesome/free-brands-svg-icons"
-import { faHeart } from "@fortawesome/pro-regular-svg-icons"
+import { faPlusCircle } from "@fortawesome/pro-regular-svg-icons"
 
 config.autoAddCss = false
-library.add(faGithub, faDiscord, faHeart)
+library.add(faGithub, faDiscord, faPlusCircle)
 
 function App({ Component, pageProps }: AppProps) {
   return (

@@ -1,43 +1,29 @@
 import React, { useContext, useEffect, useState } from "react"
 import { DFContext, FilterActionTypes } from "../../store/"
-import DomainFilter from "../../utils/DomainFilter"
 import LoadingSpinner from "../LoadingSpinner"
 import { debounce } from "lodash"
 import { formattedDate } from '../../utils/helpers'
 import classNames from "classnames"
-import useSWR from "swr"
+import axios from 'axios'
 
 const DFResults = () => {
 	const { state, dispatch } = useContext(DFContext)
-	const [numFiltered, setNumFiltered] = useState(0)
 	const [filtered, setFiltered] = useState([])
 	const [loading, setLoading] = useState(true)
-	const [unfiltered, setUnfiltered] = useState([])
 
-	const downloadUrl = process.env.NODE_ENV === 'production' 
-		? `/lists/${state.config.backorderService}/${formattedDate(state.config.dropDate)}.txt`
-		: `/api/droplist/${state.config.backorderService}/${formattedDate(state.config.dropDate)}.txt`
+	const downloadUrl = () => {
+		const searchParams = new URLSearchParams()
+		searchParams.set('service', state.config.backorderService)
+		searchParams.set('filename', formattedDate(state.config.dropDate) + ".txt")
+		const qs = searchParams.toString()
 
-	const fetcher = url => fetch(url).then(res => res.text())
+		return `/api/droplist?${qs}`
+	}
 
+	const doRealtimeFilter = () => {
+		setLoading(true)
 
-	const { data, error } = useSWR(downloadUrl, fetcher)
-
-	const getFilteredData = () => {
-		if (!state.config.keywords.length || !state.config.extensions.length) {
-			setFiltered([])
-			setNumFiltered(0)
-			return
-		}
-		if (error) {
-			console.error('Could not fetch drop list')
-			return
-		}
-
-
-		// Here the spinner should be shown 
-
-		const df = new DomainFilter({
+		const filterConfig = {
 			domainLength: state.config.domainLength,
 			includeHacks: state.config.includeHacks,
 			excludeHyphens: state.config.excludeHyphens,
@@ -48,25 +34,39 @@ const DFResults = () => {
 			extensions: state.config.extensions.length ? state.config.extensions
 				.filter((ext) => ext.selected)
 				.map((ext) => ext.value) : [],
-		})
-
-
-		if (!loading) {
-			df.filter(unfiltered, (list) => {
-				// Here the spinner should be hidden, as the data will be set
-				setNumFiltered(list.length)
-				setFiltered(list)
-			});
 		}
+
+
+		axios({
+			url: '/api/filter',
+			method: 'POST',
+			data: {
+				config: filterConfig,
+				service: state.config.backorderService,
+				filename: formattedDate(state.config.dropDate) + ".txt"
+			},
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			}
+		})
+			.then(response => {
+				setFiltered(response.data.domains)
+				setLoading(false)
+			})
+			.catch(e => {
+				console.error(e)
+				setLoading(false)
+			})
+
+
 	}
 
 	const isFavorite = (fqdn: string) => {
 		return !!state.favorites.find((f) => f.fqdn === fqdn)
 	}
 
-	useEffect(debounce(getFilteredData, 250), [
-		loading,
-		downloadUrl,
+	useEffect(debounce(doRealtimeFilter, 250), [
 		state.config.backorderService,
 		state.config.dropDate,
 		state.config.domainLength,
@@ -76,14 +76,6 @@ const DFResults = () => {
 		state.config.keywords,
 		state.config.extensions,
 	])
-
-	useEffect(() => {
-		if (data) {
-			const unfiltered = data.split("\n").filter(Boolean)
-			setUnfiltered(unfiltered)
-			setLoading(false)
-		}
-	}, [data])
 
 	return (
 		<div className="bg-white dark:bg-gray-800 shadow rounded-lg w-full h-auto flex p-4">
@@ -95,7 +87,7 @@ const DFResults = () => {
 					<label className="block text-gray-700 dark:text-white text-xl font-bold font-heading mb-2">
 						Results
 						<span className="font-light text-base text-primary ml-2">
-							{numFiltered}
+							{filtered.length}
 							{` `}
 							results
 						</span>
@@ -103,7 +95,7 @@ const DFResults = () => {
 					<small className="block text-gray-500 dark:text-white text-xs font-normal font-body mb-2">
 						These are your personalized results. To view the
 						original, unfiltered list,{" "}
-						<a href={downloadUrl} target={`_blank`}>
+						<a href={downloadUrl()} target={`_blank`}>
 							click here
 						</a>
 						.

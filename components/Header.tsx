@@ -17,13 +17,13 @@ const Header = () => {
                     </div>
                 </div>
                 <nav className="flex flex-row flex-nowrap items-center justify-end flex-1">
-                    <Link href="https://www.buymeacoffee.com/croc">
+                    <Link href="https://domaincord.com/plus">
                         <a className="flex flex-row flex-nowrap items-center text-sm text-white p-1 lg:p-4 hover:text-red-500">
                             <FontAwesomeIcon
-                                icon={[`far`, `heart`]}
+                                icon={[`far`, `plus-circle`]}
                                 className="mr-2 w-4 h-auto"
                             />
-                           <span className="hidden lg:inline-block">Support Me</span>
+                           <span className="hidden lg:inline-block">CORD+</span>
                         </a>
                     </Link>
                     <Link href="https://github.com/domaincord/dropfilter">
@@ -35,13 +35,13 @@ const Header = () => {
                             <span className="hidden lg:inline-block">Contribute</span>
                         </a>
                     </Link>
-                    <Link href="https://dc.link/discord">
+                    <Link href="https://discord.gg/domains">
                         <a className="flex flex-row flex-nowrap items-center text-sm text-white p-1 lg:p-4 hover:text-discord-light">
                             <FontAwesomeIcon
                                 icon={[`fab`, `discord`]}
                                 className="mr-2 w-4 h-auto"
                             />
-                            <span className="hidden lg:inline-block">Join the Discord</span>
+                            <span className="hidden lg:inline-block">Join</span>
                         </a>
                     </Link>
                 </nav>
