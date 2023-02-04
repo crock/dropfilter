@@ -10,9 +10,3 @@
     to = "https://lists.dropfilter.app/lists/:splat"
     status = 200
     headers = {Access-Control-Allow-Origin = "*"}
-
-[[redirects]]
-    from = "/api/*"
-    to = "https://domaincord.com/api/:splat"
-    status = 200
-    headers = {Access-Control-Allow-Origin = "*"}
