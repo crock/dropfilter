@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import styled from "styled-components"
 
 /**
  * Domain Quality Criteria
@@ -97,13 +96,6 @@ const DomainQualityMeter = ({ domainName }: IDomainQualityMeter) => {
 	}
 	useEffect(calculateQuality, [domainName])
 
-	const InnerBar = styled.div`
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-	`
-
 	const bgColorLookup = {
 		poor: "bg-range-poor",
 		fair: "bg-range-fair",
@@ -146,8 +138,8 @@ const DomainQualityMeter = ({ domainName }: IDomainQualityMeter) => {
 				short or miss the mark completely.
 			</p>
 			<div className="w-full h-6 bg-gray-300 mt-4 relative">
-				<InnerBar
-					className={`transition-width transition-colors ease-in duration-1000 ${
+				<div
+					className={`absolute top-0 left-0 bottom-0 transition-width transition-colors ease-in duration-1000 ${
 						quality ? bgColorLookup[quality.color] : "transparent"
 					}`}
 					style={{

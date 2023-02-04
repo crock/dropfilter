@@ -1,17 +1,10 @@
-import "tailwindcss/tailwind.css"
 import '../styles/globals.css'
-import { AppProps } from 'next/app'
-import { DFProvider } from '../store/'
-import Header from '../components/Header'
 
+function App({ Component, pageProps }) {
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout || ((page) => page)
 
-function App({ Component, pageProps }: AppProps) {
-  return (
-    <DFProvider>
-      <Header />
-      <Component {...pageProps} />
-    </DFProvider>
-  )
+  return getLayout(<Component {...pageProps} />)
 }
 
 export default App

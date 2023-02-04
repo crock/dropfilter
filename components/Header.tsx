@@ -6,7 +6,6 @@ import {
     faGithub,
     faDiscord,
 } from "@fortawesome/free-brands-svg-icons"
-import { PlusCircleIcon } from '@heroicons/react/20/solid'
 
 const Header = () => {
 
@@ -22,10 +21,6 @@ const Header = () => {
                     </div>
                 </div>
                 <nav className="flex flex-row flex-nowrap items-center justify-end flex-1">
-                    <Link href="https://domaincord.com/plus" className="flex flex-row flex-nowrap items-center text-sm text-white p-1 lg:p-4 hover:text-red-500">
-                        <PlusCircleIcon className="mr-2 w-4 h-auto" />
-                        <span className="hidden lg:inline-block">CORD+</span>
-                    </Link>
                     <Link href="https://github.com/domaincord/dropfilter" className="flex flex-row flex-nowrap items-center text-sm text-white p-1 lg:p-4 hover:text-black">
                         <FontAwesomeIcon
                             icon={faGithub}

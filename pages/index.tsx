@@ -15,6 +15,8 @@ import {
 } from '../components/app/'
 import { IFavorite, IPreset } from "../store/context/DFContext"
 import DomainQualityMeter from '../components/DomainQuaityMeter'
+import { DFProvider } from '../store/'
+import Header from '../components/Header'
 
 const DropfilterPage = () => {
 	const { state, dispatch } = useContext(DFContext)
@@ -278,5 +280,14 @@ const DropfilterPage = () => {
 		</>
 	)
 }
+
+DropfilterPage.getLayout = function getLayout(page) {
+	return (
+		<DFProvider>
+			<Header />
+			{page}
+		</DFProvider>
+	)
+  }
 
 export default DropfilterPage
