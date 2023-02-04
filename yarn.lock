@@ -799,6 +799,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@netlify/functions@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@netlify/functions@npm:1.4.0"
+  dependencies:
+    is-promise: ^4.0.0
+  checksum: 0adcd967689d647bcc98f5b20eda858e765cdef7caf4c56e11845edad03e070640c372865a1b846f0d7de786a9a87784bab099972bee7157e7771ccf0df503fb
+  languageName: node
+  linkType: hard
+
 "@netlify/git-utils@npm:^5.1.0":
   version: 5.1.0
   resolution: "@netlify/git-utils@npm:5.1.0"
@@ -4091,6 +4100,7 @@ __metadata:
     "@fortawesome/react-fontawesome": ^0.2.0
     "@headlessui/react": ^1.7.9
     "@heroicons/react": ^2.0.14
+    "@netlify/functions": ^1.4.0
     "@tailwindcss/forms": ^0.5.3
     "@types/node": ^18.11.18
     "@types/react": ^18.0.27
@@ -6426,6 +6436,13 @@ __metadata:
   version: 2.2.2
   resolution: "is-promise@npm:2.2.2"
   checksum: 18bf7d1c59953e0ad82a1ed963fb3dc0d135c8f299a14f89a17af312fc918373136e56028e8831700e1933519630cc2fd4179a777030330fde20d34e96f40c78
+  languageName: node
+  linkType: hard
+
+"is-promise@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "is-promise@npm:4.0.0"
+  checksum: 0b46517ad47b00b6358fd6553c83ec1f6ba9acd7ffb3d30a0bf519c5c69e7147c132430452351b8a9fc198f8dd6c4f76f8e6f5a7f100f8c77d57d9e0f4261a8a
   languageName: node
   linkType: hard
 
