@@ -2,9 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  mode: "jit",
-  darkMode: "media",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -19,7 +17,7 @@ module.exports = {
         xl: "1440px",
       },
       colors: {
-        gray: colors.blueGray,
+        gray: colors.slate,
         lime: colors.lime,
         primary: {
           light: colors.blue[300],
@@ -44,5 +42,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/ui"), require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms")],
 };
