@@ -13,10 +13,10 @@ const NumberToggle = () => {
 	return (
 		<div className="my-2 flex flex-row flex-no-wrap justify-between items-center">
 			<div>
-				<label className="block text-gray-700 dark:text-white text-xl font-bold font-heading mb-2">
+				<label className="block text-gray-700 dark:text-white text-xl font-bold font-semibold mb-2">
 					Exclude Numbers
 				</label>
-				<small className="block text-gray-500 dark:text-white text-xs font-normal font-body mb-2">
+				<small className="block text-gray-500 dark:text-white text-xs font-normal font-normal mb-2">
 					Remove domain names that contain numbers from the results.
 				</small>
 			</div>

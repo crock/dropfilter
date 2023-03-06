@@ -84,7 +84,7 @@ const DFResults = () => {
 			) : (
 				<div className="flex flex-col">
 
-					<label className="block text-gray-700 dark:text-white text-xl font-bold font-heading mb-2">
+					<label className="block text-gray-700 dark:text-white text-xl font-bold font-semibold mb-2">
 						Results
 						<span className="font-light text-base text-primary ml-2">
 							{filtered.length}
@@ -92,7 +92,7 @@ const DFResults = () => {
 							results
 						</span>
 					</label>
-					<small className="block text-gray-500 dark:text-white text-xs font-normal font-body mb-2">
+					<small className="block text-gray-500 dark:text-white text-xs font-normal font-normal mb-2">
 						These are your personalized results. To view the
 						original, unfiltered list,{" "}
 						<a href={downloadUrl()} target={`_blank`}>

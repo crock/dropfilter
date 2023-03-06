@@ -5,12 +5,8 @@ module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        display: ["Montserrat", ...defaultTheme.fontFamily.sans],
-        body: ["Lato", ...defaultTheme.fontFamily.sans],
-        heading: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
-      },
       screens: {
+        xs: "320px",
         sm: "568px",
         md: "768px",
         lg: "1200px",

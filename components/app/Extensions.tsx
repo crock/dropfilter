@@ -21,13 +21,13 @@ const Extensions = () => {
 		<div className="flex flex-col my-2">
 			<div className="flex flex-row flex-no-wrap justify-between items-center">
 				<div className="w-full">
-					<label className="block text-gray-700 dark:text-white text-xl font-bold font-heading mb-2">
+					<label className="block text-gray-700 dark:text-white text-xl font-bold font-semibold mb-2">
 						Extensions
 						<span className="font-light text-base text-primary ml-2">
 							<ModalLabel />
 						</span>
 					</label>
-					<small className="block text-gray-500 dark:text-white text-xs font-normal font-body mb-2">
+					<small className="block text-gray-500 dark:text-white text-xs font-normal font-normal mb-2">
 						Select specific extensions to filter. This does not
 						apply when Domain Hacks is enabled.
 					</small>

@@ -42,7 +42,7 @@ const myHandler: Handler = async (event: HandlerEvent, context: HandlerContext) 
 
     const pasteResponse = await axios({
         method: 'POST',
-        url: `https://api.omg.lol/address/expired/pastebin/`,
+        url: `https://api.omg.lol/address/og/pastebin/`,
         headers: {
             Authorization: `Bearer ${process.env.OMG_API_KEY}`
         },
@@ -69,7 +69,7 @@ ${externalUrl}
 
     const res = await axios({
         method: 'POST',
-        url: `https://api.omg.lol/address/expired/statuses/`,
+        url: `https://api.omg.lol/address/og/statuses/`,
         headers: {
             Authorization: `Bearer ${process.env.OMG_API_KEY}`
         },

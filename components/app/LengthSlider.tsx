@@ -59,17 +59,17 @@ const LengthSlider = () => {
 
 	return (
 		<div className="mt-2 mb-20">
-			<label className="block text-gray-700 dark:text-white text-xl font-bold font-heading mb-2">
+			<label className="block text-gray-700 dark:text-white text-xl font-bold font-semibold mb-2">
 				Length
 				<span className="p-3">
 					<span className="text-sm mr-3">
-						<span className="text-black dark:text-white font-bold font-body">
+						<span className="text-black dark:text-white font-bold font-normal">
 							Min:{" "}
 						</span>
 						<span className="text-primary">{values[0]}</span>
 					</span>
 					<span className="text-sm mr-3">
-						<span className="text-black dark:text-white font-bold font-body">
+						<span className="text-black dark:text-white font-bold font-normal">
 							Max:{" "}
 						</span>
 						<span className="text-primary">{values[1]}</span>
@@ -78,19 +78,19 @@ const LengthSlider = () => {
 			</label>
 			<p>
 				<span className="text-sm mr-3">
-					<span className="text-black dark:text-white font-bold font-body">
+					<span className="text-black dark:text-white font-bold font-normal">
 						Smallest Keyword:{" "}
 					</span>
 					<span className="text-primary">{kVals[0]}</span>
 				</span>
 				<span className="text-sm mr-3">
-					<span className="text-black dark:text-white font-bold font-body">
+					<span className="text-black dark:text-white font-bold font-normal">
 						Largest Keyword:{" "}
 					</span>
 					<span className="text-primary">{kVals[1]}</span>
 				</span>
 			</p>
-			<small className="block text-gray-500 dark:text-white text-xs font-normal font-body mb-2">
+			<small className="block text-gray-500 dark:text-white text-xs font-normal font-normal mb-2">
 				Does not include extension or dots in length calculation.
 			</small>
 			<Slider

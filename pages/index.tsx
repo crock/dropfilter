@@ -53,17 +53,17 @@ const DropfilterPage = () => {
 				<title>Dropfilter</title>
 				<meta name="description" content="Filter expiring domain names easily" />
 			</Head>
-			<div className="container mx-auto px-4 lg:px-0 py-24">
+			<div className="container mx-auto px-4 py-24 w-full">
 				<div className="grid grid-cols-1 md:grid-cols-12 gap-4">
 					<div className="col-span-12 lg:col-span-8">
 						<main>
 						<div className="flex flex-col justify-start items-start w-full">
 				<div className="flex flex-row justify-between items-center w-full">
 					<div className="flex flex-col">
-						<h1 className="block text-black dark:text-white text-5xl font-bold font-heading mb-2">
+						<h1 className="block text-black dark:text-white text-5xl font-bold font-semibold mb-2">
 							Dropfilter
 						</h1>
-						<p className="block text-block dark:text-white text-base font-light font-body">
+						<p className="block text-block dark:text-white text-base font-light font-normal">
 							Filter Expiring Domain Names
 						</p>
 					</div>
@@ -73,10 +73,10 @@ const DropfilterPage = () => {
 
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-4">
 					<div className="bg-white dark:bg-gray-800 rounded shadow p-4">
-						<h4 className="font-display text-lg mt-0 text-black dark:text-white">
+						<h4 className="font-bold text-lg mt-0 text-black dark:text-white">
 							About Dropfilter
 						</h4>
-						<p className="leading-6 font-body text-black dark:text-white">
+						<p className="leading-6 font-normal text-black dark:text-white">
 							Dropfilter is the tool every domain name investor
 							needs. You can filter lists of hundreds of thousands
 							of domain names expiring every single day from all
@@ -87,10 +87,10 @@ const DropfilterPage = () => {
 					</div>
 
 					<div className="bg-white dark:bg-gray-800 rounded shadow p-4">
-						<h4 className="font-display text-lg mt-0 text-black dark:text-white">
+						<h4 className="font-bold text-lg mt-0 text-black dark:text-white">
 							What is drop-catching?
 						</h4>
-						<p className="leading-6 font-body text-black dark:text-white">
+						<p className="leading-6 font-normal text-black dark:text-white">
 							Domain drop catching, also known as domain sniping,
 							is the practice of registering a domain name once
 							registration has lapsed, immediately after expiry.
@@ -109,10 +109,10 @@ const DropfilterPage = () => {
 				<div className="flex flex-col lg:flex-row flex-nowrap justify-between items-start w-full">
 					<div className="w-full">
 						<div className="mb-2">
-							<h2 className="block text-black dark:text-white text-3xl font-bold font-heading mb-2">
+							<h2 className="block text-black dark:text-white text-3xl font-bold font-semibold mb-2">
 								Favorites
 							</h2>
-							<p className="block text-block dark:text-white text-base font-light font-body mb-4">
+							<p className="block text-block dark:text-white text-base font-light font-normal mb-4">
 								Your personal collection of expiring domains that you like.
 							</p>
 							<div className="flex flex-col w-full">
@@ -161,10 +161,10 @@ const DropfilterPage = () => {
 						</div>
 					</div>
 					<div className="w-full lg:ml-4">
-							<h2 className="block text-black dark:text-white text-3xl font-bold font-heading mb-2">
+							<h2 className="block text-black dark:text-white text-3xl font-bold font-semibold mb-2">
 								Presets / Saved Searches
 							</h2>
-							<p className="block text-block dark:text-white text-base font-light font-body mb-4">
+							<p className="block text-block dark:text-white text-base font-light font-normal mb-4">
 								Your personal collection of saved configuration presets
 							</p>
 						<div className="flex flex-col w-full">
@@ -258,10 +258,10 @@ const DropfilterPage = () => {
 					</div>
 					<div className="col-span-12 lg:col-span-4">
 						<aside className="w-full h-full">
-							<h2 className="font-bold font-heading text-3xl text-black dark:text-white mb-2">
+							<h2 className="font-bold font-semibold text-3xl text-black dark:text-white mb-2">
 								Filters
 							</h2>
-							<p className="block text-block dark:text-white text-base font-light font-body">
+							<p className="block text-block dark:text-white text-base font-light font-normal">
 								Try these custom filters to help you find the results
 								you want.
 							</p>
