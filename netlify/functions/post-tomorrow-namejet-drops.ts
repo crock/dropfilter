@@ -95,6 +95,6 @@ ${externalUrl}
     }
 };
 
-const handler = schedule("@daily", myHandler)
+// const handler = schedule("@daily", myHandler)
 
 export { handler };
