@@ -4,7 +4,7 @@ import axios from 'axios'
 import moment from 'moment'
 import { shuffle } from 'lodash'
 
-const myHandler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
+const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
 
     const filterConfig: IFilterConfig = {
         domainLength: [1,4],
@@ -95,6 +95,5 @@ ${externalUrl}
     }
 };
 
-// const handler = schedule("@daily", myHandler)
 
 export { handler };
