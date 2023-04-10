@@ -1,4 +1,4 @@
-import { Handler, HandlerEvent, HandlerContext, schedule } from "@netlify/functions";
+import { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
 import DomainFilter, { IFilterConfig } from "../../utils/DomainFilter";
 import axios from 'axios'
 import moment from 'moment'
