@@ -17,16 +17,16 @@ const BackorderService = () => {
 
 	return (
 		<div className="my-2">
-			<label className="block text-gray-700 dark:text-white text-xl font-bold font-semibold mb-2">
+			<label className="block text-gray-700 dark:text-white text-xl font-semibold mb-2">
 				Backorder Service
 			</label>
-			<small className="block text-gray-500 dark:text-white text-xs font-normal font-normal mb-2">
+			<small className="block text-gray-500 dark:text-white text-xs font-normal mb-2">
 				Choose which backorder service&apos;s drop list to filter.
 			</small>
 			<select
 				className="w-full text-black"
 				value={state.config.backorderService}
-				defaultValue="namejet"
+				defaultValue="snapnames"
 				onChange={changeAction}
 			>
 				{ services && services.length ? (
