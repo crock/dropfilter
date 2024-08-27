@@ -13,8 +13,8 @@ const DFResults = () => {
 
 	const downloadUrl = () => {
 		const searchParams = new URLSearchParams()
-		searchParams.set('service', state.config.backorderService)
-		searchParams.set('filename', formattedDate(state.config.dropDate) + ".txt")
+		searchParams.set('service', "snapnames")
+		searchParams.set('filename', formattedDate("today") + ".txt")
 		const qs = searchParams.toString()
 
 		return `/api/droplist?${qs}`
@@ -25,15 +25,13 @@ const DFResults = () => {
 
 		const filterConfig = {
 			domainLength: state.config.domainLength,
-			includeHacks: state.config.includeHacks,
-			excludeHyphens: state.config.excludeHyphens,
-			excludeNumbers: state.config.excludeNumbers,
+			domainHacks: state.config.domainHacks,
+			hyphens: state.config.hyphens,
+			numbers: state.config.numbers,
 			keywords: state.config.keywords.length ? state.config.keywords
-				.filter((kw) => kw.selected)
-				.map((kw) => kw.value) : [],
+				.filter((kw) => kw.selected) : [],
 			extensions: state.config.extensions.length ? state.config.extensions
-				.filter((ext) => ext.selected)
-				.map((ext) => ext.value) : [],
+				.filter((ext) => ext.selected) : [],
 		}
 
 
@@ -42,8 +40,8 @@ const DFResults = () => {
 			method: 'POST',
 			data: {
 				config: filterConfig,
-				service: state.config.backorderService,
-				filename: formattedDate(state.config.dropDate) + ".txt"
+				service: "snapnames",
+				filename: formattedDate("today") + ".txt"
 			},
 			headers: {
 				'Content-Type': 'application/json',
@@ -67,12 +65,10 @@ const DFResults = () => {
 	}
 
 	useEffect(debounce(doRealtimeFilter, 250), [
-		state.config.backorderService,
-		state.config.dropDate,
 		state.config.domainLength,
-		state.config.excludeHyphens,
-		state.config.excludeNumbers,
-		state.config.includeHacks,
+		state.config.hyphens,
+		state.config.numbers,
+		state.config.domainHacks,
 		state.config.keywords,
 		state.config.extensions,
 	])
@@ -84,7 +80,7 @@ const DFResults = () => {
 			) : (
 				<div className="flex flex-col">
 
-					<label className="block text-gray-700 dark:text-white text-xl font-bold font-semibold mb-2">
+					<label className="block text-gray-700 dark:text-white text-xl font-bold mb-2">
 						Results
 						<span className="font-light text-base text-primary ml-2">
 							{filtered.length}
@@ -92,7 +88,7 @@ const DFResults = () => {
 							results
 						</span>
 					</label>
-					<small className="block text-gray-500 dark:text-white text-xs font-normal font-normal mb-2">
+					<small className="block text-gray-500 dark:text-white text-xs font-light mb-2">
 						These are your personalized results. To view the
 						original, unfiltered list,{" "}
 						<a href={downloadUrl()} target={`_blank`}>
@@ -116,7 +112,7 @@ const DFResults = () => {
 										"bg-primary text-white bg-none border-none p-2 flex flex-row flex-nowrap items-center focus:outline-none flex-1"
 									}
 									title={`toggle ${d} as favorite`}
-									onClick={() => dispatch({ type: FilterActionTypes.addFavorite, payload: { fqdn: d, drop_date_str: formattedDate(state.config.dropDate) } })}
+									onClick={() => dispatch({ type: FilterActionTypes.addFavorite, payload: { fqdn: d, drop_date_str: formattedDate("today") } })}
 								>
 									<span>{d}</span>
 

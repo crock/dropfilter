@@ -13,16 +13,15 @@ const DropDate = () => {
 
 	return (
 		<div className="my-2">
-			<label className="block text-gray-700 dark:text-white text-xl font-bold font-semibold mb-2">
+			<label className="block text-gray-700 dark:text-white text-xl font-bold mb-2">
 				Drop Date
 			</label>
-			<small className="block text-gray-500 dark:text-white text-xs font-normal font-normal mb-2">
+			<small className="block text-gray-500 dark:text-white text-xs font-light mb-2">
 				Choose the target expiration date you want to filter domains
 				for.
 			</small>
 			<select
 				className="w-full text-black"
-				value={state.config.dropDate}
 				defaultValue="today"
 				onChange={changeAction}
 			>

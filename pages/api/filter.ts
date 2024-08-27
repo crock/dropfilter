@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import axios from 'axios'
-import DomainFilter from '../../utils/DomainFilter'
+import DomainFilter from 'domainfilter'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { config, service, filename } = req.body

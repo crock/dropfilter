@@ -1,4 +1,4 @@
-import { IKeyword } from "./DomainFilter"
+import { IKeyword } from "domainfilter"
 import moment from 'moment'
 
 export const compareStrings = (a: string, b: string) => {

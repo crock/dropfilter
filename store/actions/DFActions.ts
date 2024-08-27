@@ -1,6 +1,6 @@
-import { IFilters, IDropfilter, IFavorite, IPreset } from "../context/DFContext"
+import { IDropfilter, IFavorite, IPreset } from "../context/DFContext"
 import initialState, { defaultKeywords } from "../initialState"
-import { IKeyword } from "../../utils/DomainFilter"
+import { IKeyword } from "domainfilter"
 import { sortKeywords } from "../../utils/helpers"
 
 export enum FilterActionTypes {
@@ -92,7 +92,7 @@ const actions: Record<FilterActionTypes, IActionHandler> = {
 		const keywords = state.config.keywords.slice()
 		const keyword = keywords[index]
 		keywords.splice(index, 1, {
-			value: keyword.value,
+			...keyword,
 			selected: !keyword.selected,
 		})
 		sortKeywords(keywords)
@@ -104,7 +104,7 @@ const actions: Record<FilterActionTypes, IActionHandler> = {
 		)
 		if (!keyword) {
 			const keywords = state.config.keywords.slice()
-			keywords.push({ value: payload, selected: true })
+			keywords.push({ ...keyword, value: payload, selected: true })
 			sortKeywords(keywords)
 			return { ...state, config: { ...state.config, keywords } }
 		} else {
@@ -120,14 +120,14 @@ const actions: Record<FilterActionTypes, IActionHandler> = {
 	removeDefaultKeywords: (state: IDropfilter) => {
 		const keywords = state.config.keywords.slice()
 		const defaultsRemoved = keywords.filter(
-			(kw) => !defaultKeywords.includes(kw.value)
+			(kw) => !defaultKeywords.find(k => k.value === kw.value)
 		)
 		return { ...state, config: { ...state.config, keywords: defaultsRemoved } }
 	},
 	restoreDefaultKeywords: (state: IDropfilter) => {
 		let keywords = state.config.keywords
 			.slice()
-			.concat(defaultKeywords.map((value) => ({ value, selected: true })))
+			.concat(defaultKeywords)
 		keywords = keywords.reduce((acc, curr) => {
 			if (acc.findIndex((k) => k.value === curr.value) === -1)
 				acc.push(curr)
@@ -163,15 +163,15 @@ const actions: Record<FilterActionTypes, IActionHandler> = {
 	}),
 	toggleHacks: (state: IDropfilter) => ({
 		...state,
-		config: { ...state.config, includeHacks: !state.config.includeHacks },
+		config: { ...state.config, domainHacks: !state.config.domainHacks },
 	}),
 	toggleHyphens: (state: IDropfilter) => ({
 		...state,
-		config: { ...state.config, excludeHyphens: !state.config.excludeHyphens },
+		config: { ...state.config, hyphens: !state.config.hyphens },
 	}),
 	toggleNumbers: (state: IDropfilter) => ({
 		...state,
-		config: { ...state.config, excludeNumbers: !state.config.excludeNumbers },
+		config: { ...state.config, numbers: !state.config.numbers },
 	}),
 	reset: () => initialState,
 	restoreConfiguration: (state: IDropfilter, payload: IDropfilter) => ({

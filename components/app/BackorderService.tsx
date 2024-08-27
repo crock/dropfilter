@@ -25,7 +25,6 @@ const BackorderService = () => {
 			</small>
 			<select
 				className="w-full text-black"
-				value={state.config.backorderService}
 				defaultValue="snapnames"
 				onChange={changeAction}
 			>

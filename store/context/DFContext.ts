@@ -1,19 +1,8 @@
 import { createContext } from "react"
 import { IAction } from "../actions/DFActions"
 import initialState from "../initialState"
-import { IExtension, IKeyword } from "../../utils/DomainFilter"
+import { IFilterConfig } from "domainfilter"
 
-export interface IFilters {
-	outputType: string
-	backorderService: string
-	dropDate: string
-	domainLength: number[]
-	includeHacks: boolean
-	excludeHyphens: boolean
-	excludeNumbers: boolean
-	extensions: IExtension[]
-	keywords: IKeyword[]
-}
 export interface IFavorite {
 	fqdn: string
 	drop_date_str: string
@@ -22,12 +11,13 @@ export interface IFavorite {
 
 export interface IPreset {
 	created_at: Date
-	config: IFilters
+	config: IFilterConfig
 }
+
 export interface IDropfilter {
 	favorites: IFavorite[],
 	presets: IPreset[],
-	config: IFilters
+	config: IFilterConfig
 }
 
 type DispatchFunction = (action: IAction) => void

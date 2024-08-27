@@ -22,7 +22,6 @@ const OutputType = () => {
 			</small>
 			<select
 				className="w-full"
-				value={state.config.outputType}
 				defaultValue="web"
 				onChange={changeAction}
 			>

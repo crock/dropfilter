@@ -1,16 +1,35 @@
-export const defaultKeywords = ["apple", "beach", "tech"]
+import {IDropfilter} from "./context/DFContext";
+import {KeywordPosition} from "domainfilter";
 
-export default {
+export const defaultKeywords  = [
+	{
+		value: "apple",
+		selected: true,
+		position: "start" as KeywordPosition,
+	},
+	{
+		value: "beach",
+		selected: true,
+		position: "end" as KeywordPosition,
+	},
+	{
+		value: "tech",
+		selected: false,
+		position: "anywhere" as KeywordPosition,
+	},
+]
+
+// @ts-ignore
+const initialState: IDropfilter = {
 	favorites: [],
 	presets: [],
 	config: {
-		outputType: "web", // web, bot, cli, raw, raw_legacy
-		backorderService: "namejet",
-		dropDate: "today", // yesterday, today, tomorrow, in_2_days, in_3_days
+		idn: false,
+		adult: false,
 		domainLength: [7, 15], // [min, max]
-		includeHacks: false,
-		excludeHyphens: true,
-		excludeNumbers: true,
+		domainHacks: false,
+		hyphens: false,
+		numbers: false,
 		extensions: [
 			{
 				value: ".com",
@@ -18,82 +37,15 @@ export default {
 			},
 			{
 				value: ".net",
-				selected: true,
+				selected: false,
 			},
 			{
 				value: ".org",
-				selected: true,
-			},
-			{
-				value: ".io",
-				selected: false,
-			},
-			{
-				value: ".co",
-				selected: false,
-			},
-			{
-				value: ".app",
-				selected: false,
-			},
-			{
-				value: ".page",
-				selected: false,
-			},
-			{
-				value: ".dev",
-				selected: false,
-			},
-			{
-				value: ".xyz",
-				selected: false,
-			},
-			{
-				value: ".pw",
-				selected: false,
-			},
-			{
-				value: ".co.uk",
-				selected: false,
-			},
-			{
-				value: ".uk",
-				selected: false,
-			},
-			{
-				value: ".us",
-				selected: false,
-			},
-			{
-				value: ".info",
-				selected: false,
-			},
-			{
-				value: ".cc",
-				selected: false,
-			},
-			{
-				value: ".biz",
-				selected: false,
-			},
-			{
-				value: ".tv",
 				selected: false,
 			},
 		],
-		keywords: [
-			{
-				value: "apple",
-				selected: true,
-			},
-			{
-				value: "beach",
-				selected: true,
-			},
-			{
-				value: "tech",
-				selected: false,
-			},
-		],
+		keywords: defaultKeywords,
 	}
 }
+
+export default initialState

@@ -1,17 +1,14 @@
 import React, { useContext, useEffect, useState } from "react"
 import Head from 'next/head'
-import Img from 'next/image'
 import { DFContext, FilterActionTypes } from "../store"
-import { 
-	Results, 
+import {
+	Results,
 	Extensions,
 	Keywords,
 	DomainHacks,
 	LengthSlider,
 	HyphenToggle,
 	NumberToggle,
-	BackorderService,
-	DropDate
 } from '../components/app/'
 import { IFavorite, IPreset } from "../store/context/DFContext"
 import DomainQualityMeter from '../components/DomainQuaityMeter'
@@ -60,16 +57,16 @@ const DropfilterPage = () => {
 						<div className="flex flex-col justify-start items-start w-full">
 				<div className="flex flex-row justify-between items-center w-full">
 					<div className="flex flex-col">
-						<h1 className="block text-black dark:text-white text-5xl font-bold font-semibold mb-2">
+						<h1 className="block text-black dark:text-white text-5xl font-bold mb-2">
 							Dropfilter
 						</h1>
-						<p className="block text-block dark:text-white text-base font-light font-normal">
+						<p className="block text-block dark:text-white text-base font-light">
 							Filter Expiring Domain Names
 						</p>
 					</div>
-					<button className="bg-primary hover:bg-primary-dark text-white font-semibold text-sm rounded shadow py-2 px-3" onClick={() => dispatch({type: FilterActionTypes.addPreset, payload: { config: state.config }})}>Save Preset</button>	
+					<button className="bg-primary hover:bg-primary-dark text-white font-semibold text-sm rounded shadow py-2 px-3" onClick={() => dispatch({type: FilterActionTypes.addPreset, payload: { config: state.config }})}>Save Preset</button>
 				</div>
-				
+
 
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-4">
 					<div className="bg-white dark:bg-gray-800 rounded shadow p-4">
@@ -109,17 +106,17 @@ const DropfilterPage = () => {
 				<div className="flex flex-col lg:flex-row flex-nowrap justify-between items-start w-full">
 					<div className="w-full">
 						<div className="mb-2">
-							<h2 className="block text-black dark:text-white text-3xl font-bold font-semibold mb-2">
+							<h2 className="block text-black dark:text-white text-3xl font-bold mb-2">
 								Favorites
 							</h2>
-							<p className="block text-block dark:text-white text-base font-light font-normal mb-4">
+							<p className="block text-block dark:text-white text-base font-light mb-4">
 								Your personal collection of expiring domains that you like.
 							</p>
 							<div className="flex flex-col w-full">
 							{state.favorites.length
 						? state.favorites.map((fav: IFavorite, index: number) => (
 							<div key={index} className="block bg-white dark:bg-gray-800 p-1 shadow-sm rounded-sm relative my-1 w-full">
-									<strong className="font-mono">{fav.fqdn}</strong>	
+									<strong className="font-mono">{fav.fqdn}</strong>
 									<div className="text-xs block">
 										<span className="mr-2">{fav.drop_date_str}</span>
 										<a href={`https://domainr.com/${fav.fqdn}`} target={`_blank`}>
@@ -161,10 +158,10 @@ const DropfilterPage = () => {
 						</div>
 					</div>
 					<div className="w-full lg:ml-4">
-							<h2 className="block text-black dark:text-white text-3xl font-bold font-semibold mb-2">
+							<h2 className="block text-black dark:text-white text-3xl font-bold mb-2">
 								Presets / Saved Searches
 							</h2>
-							<p className="block text-block dark:text-white text-base font-light font-normal mb-4">
+							<p className="block text-block dark:text-white text-base font-light mb-4">
 								Your personal collection of saved configuration presets
 							</p>
 						<div className="flex flex-col w-full">
@@ -176,24 +173,16 @@ const DropfilterPage = () => {
 								>
 									<div>
 										<div>
-											<strong>Backorder Service:</strong>{" "}
-											{pre.config?.backorderService}
+											<strong>Domain Hacks:</strong>{" "}
+											{pre.config?.domainHacks?.toString()}
 										</div>
 										<div>
-											<strong>Drop Date:</strong>{" "}
-											{pre.config?.dropDate}
+											<strong>Hyphens:</strong>{" "}
+											{pre.config?.hyphens?.toString()}
 										</div>
 										<div>
-											<strong>Include Hacks:</strong>{" "}
-											{pre.config?.includeHacks?.toString()}
-										</div>
-										<div>
-											<strong>Exlude Hyphens:</strong>{" "}
-											{pre.config?.excludeHyphens?.toString()}
-										</div>
-										<div>
-											<strong>Exlude Numbers:</strong>{" "}
-											{pre.config?.excludeNumbers?.toString()}
+											<strong>Numeric:</strong>{" "}
+											{pre.config?.numbers?.toString()}
 										</div>
 										<div>
 											<strong>Min. Domain Length:</strong>{" "}
@@ -258,10 +247,10 @@ const DropfilterPage = () => {
 					</div>
 					<div className="col-span-12 lg:col-span-4">
 						<aside className="w-full h-full">
-							<h2 className="font-bold font-semibold text-3xl text-black dark:text-white mb-2">
+							<h2 className="font-bold text-3xl text-black dark:text-white mb-2">
 								Filters
 							</h2>
-							<p className="block text-block dark:text-white text-base font-light font-normal">
+							<p className="block text-block dark:text-white text-base font-light">
 								Try these custom filters to help you find the results
 								you want.
 							</p>
@@ -271,8 +260,6 @@ const DropfilterPage = () => {
 							<HyphenToggle />
 							<NumberToggle />
 							<LengthSlider />
-							<BackorderService />
-							<DropDate />
 						</aside>
 					</div>
 				</div>
