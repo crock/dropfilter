@@ -1,7 +1,7 @@
 import { IDropfilter, IFavorite, IPreset } from "../context/DFContext"
 import initialState, { defaultKeywords } from "../initialState"
 import { IKeyword, KeywordPosition } from "domainfilter"
-import { sortKeywords } from "@/utils/helpers"
+import { generateApiKey, sortKeywords } from "@/utils/helpers"
 
 export enum FilterActionTypes {
 	addUnfilteredDomains = "addUnfilteredDomains",
@@ -112,9 +112,9 @@ const actions: Record<FilterActionTypes, IActionHandler> = {
 		const keyword: IKeyword | undefined = state.config.keywords.find(
 			(k: IKeyword) => k.value === payload
 		)
-		if (keyword) {
+		if (!keyword) {
 			const keywords = state.config.keywords.slice()
-			keywords.push({ ...keyword, value: payload, selected: true })
+			keywords.push({ id: generateApiKey(), value: payload, selected: true, position: "start" as KeywordPosition })
 			return { ...state, config: { ...state.config, keywords } }
 		} else {
 			// log error

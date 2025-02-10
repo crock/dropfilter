@@ -5,21 +5,21 @@ const Keywords = () => {
 	const { state, dispatch } = useContext(DFContext)
 	const [keyword, setKeyword] = useState("")
 
-	const onTyping = (event: any) => {
+	const onTyping = (event) => {
 		const keywordEntered: string = event.target.value
 			? event.target.value.trim().toLowerCase()
 			: ""
 		return keywordEntered !== "" ? setKeyword(keywordEntered) : false
 	}
 
-	const addKeyword = (_event: any) => {
+	const addKeyword = (event) => {
 		if (keyword !== "") {
 			dispatch({ type: FilterActionTypes.addKeyword, payload: keyword })
 			setKeyword("")
 		}
 	}
 
-	const handleKeyPress = (event: any) => {
+	const handleKeyPress = (event) => {
 		if (event.key === "Enter") {
 			addKeyword(event)
 		}
