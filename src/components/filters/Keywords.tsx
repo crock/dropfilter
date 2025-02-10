@@ -116,7 +116,7 @@ const Keywords = () => {
 						<div className="flex flex-row flex-nowrap justify-between items-center w-full">
 							<div className="flex flex-row flex-nowrap justify-start items-center">
 								<input onChange={() => dispatch({ type: FilterActionTypes.toggleKeyword, payload: index })} checked={kw.selected} type="checkbox" name="keyword-selected" id="keyword-selected" />
-								<span>{kw.value}</span>
+								<span className="text-black dark:text-white ml-2">{kw.value}</span>
 							</div>
 							<div className="flex flex-row flex-nowrap justify-between items-center">
 								<select value={kw.position} onChange={(e) => dispatch({ type: FilterActionTypes.setKeywordPosition, payload: { index, position: e.target.value } })} className="form-select block w-32 h-10 p-2 rounded-sm border border-gray-500 dark:border-gray-600 text-black dark:text-white dark:bg-gray-700 sm:text-sm sm:leading-5">
