@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-display: "Inter", "sans-serif";
+  --color-primary: var(--color-blue-500);
+  --color-primary-dark: var(--color-blue-600);
+  --color-primary-light: var(--color-blue-400);
+
+  /* Domain Quality Range */
+  --color-range-poor: var(--color-red-500);
+  --color-range-fair: var(--color-orange-500);
+  --color-range-average: var(--color-yellow-500);
+  --color-range-good: var(--color-lime-500);
+  --color-range-excellent: var(--color-green-500);
+
+  --background: white;
+  --foreground: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+import React, { useContext } from "react"
+import { DFContext, FilterActionTypes } from "@/store"
+import useSWR from "swr"
+
+const BackorderService = () => {
+	const { state, dispatch } = useContext(DFContext)
+
+	const fetcher = url => fetch(url).then(res => res.json())
+	const { data: services, error } = useSWR(`/api/dropfilter/platforms`, fetcher)
+
+	const changeAction = (event: React.ChangeEvent<HTMLSelectElement>) => {
+		dispatch({
+			type: FilterActionTypes.backorderService,
+			payload: event.target.value,
+		})
+	}
+
+	return (
+		<div className="my-2">
+			<label className="block text-gray-700 dark:text-white text-xl font-semibold mb-2">
+				Backorder Service
+			</label>
+			<small className="block text-gray-500 dark:text-white text-xs font-normal mb-2">
+				Choose which backorder service&apos;s drop list to filter.
+			</small>
+			<select
+				className="w-full text-black"
+				defaultValue="snapnames"
+				onChange={changeAction}
+			>
+				{ services && services.length ? (
+					services.map((s) => (
+						s.active ? (
+							<option key={s.slug} value={s.slug}>
+								{s.displayName}
+							</option>
+						) : null
+					))
+				) : null}
+			</select>
+		</div>
+	)
+}
+
+export default BackorderService
