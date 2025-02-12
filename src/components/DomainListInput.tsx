@@ -8,10 +8,11 @@ const DomainListInput = ({ onDomainsAdded }: DomainListInputProps) => {
   const [domains, setDomains] = useState<string[]>([])
 
   const handleAddDomains = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const domainList = event.target.value.match(/([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}/g)
+    const domainList = event.target.value.match(/([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}/gi)
     if (domainList) {
-      setDomains([...domains, ...domainList])
-      onDomainsAdded(domainList, domainList.length)   
+      const uniqueDomains = [...new Set(domainList)].map(domain => domain.toLowerCase())
+      setDomains([...domains, ...uniqueDomains])
+      onDomainsAdded(uniqueDomains, uniqueDomains.length)   
     }
   }
 
