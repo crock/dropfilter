@@ -50,7 +50,7 @@ function Page() {
               <section className="w-full">
                 <h2 className="font-bold text-3xl text-black dark:text-white mb-2">Domain List Input</h2>
                 <p className="block text-gray-600 dark:text-gray-300 text-base font-light mb-4">
-                  Paste a plain text list of domains or even a raw CSV into the text area below and we'll extract the domains for you and allow you to filter them.
+                  Paste a plain text list of domains, CSV, JSON, or even HTML into the text area below and we'll extract the domains for you and allow you to filter them.
                 </p>
                 <h3 className="font-bold text-xl text-black dark:text-white mb-2">Where to find lists of expiring and auction domains</h3>
                 <ul>
